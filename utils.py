@@ -70,7 +70,7 @@ def preprocessdata(stock):
         model.add(LSTM(50, activation='relu'))  # You can add more LSTM layers as needed
         model.add(Dense(1))
         model.compile(optimizer='adam', loss='mean_squared_error')
-        model.fit(X_train, y_train, epochs=15, batch_size=32)
+        model.fit(X_train, y_train, epochs=5, batch_size=32)
         predictions = model.predict(X_test)
         predictions = scaler.inverse_transform(predictions)
         pred = model.predict([[int(stock)]])
